@@ -34,6 +34,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use OmniAuth for user authentication
+gem 'omniauth'
+# Use the Twitter strategy so that users log in with Twitter accounts
+gem 'omniauth-twitter'
+
 group :development do
   gem 'brice'
   gem 'hirb'
