@@ -3,7 +3,7 @@ class CreateAds < ActiveRecord::Migration
     create_table :ads do |t|
       t.string :title
       t.text :description
-      t.integer :user_id
+      t.integer :user_id, index: true
 
       t.timestamps null: false
     end
