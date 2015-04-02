@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @ad.title
+%p
+  %b Description:
+  = @ad.description
+%p
+  %b User:
+  = @ad.user_id
+
+= link_to 'Edit', edit_ad_path(@ad)
+\|
+= link_to 'Back', ads_path
