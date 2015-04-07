@@ -1,6 +1,7 @@
 class AdsController < ApplicationController
-  before_action :set_ad, only: [:show, :edit, :update, :destroy]
+  before_action :set_ad, only: [:show]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_own_ad, only: [:edit, :update, :destroy]
 
   # GET /ads
   # GET /ads.json
@@ -26,6 +27,7 @@ class AdsController < ApplicationController
   # POST /ads.json
   def create
     @ad = Ad.new(ad_params)
+    @ad.user_id = current_user.id
 
     respond_to do |format|
       if @ad.save
@@ -66,6 +68,10 @@ class AdsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_ad
       @ad = Ad.find(params[:id])
+    end
+
+    def set_own_ad
+      @ad = Ad.find_by_id_and_user_id(params[:id], current_user.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
