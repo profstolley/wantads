@@ -9,6 +9,12 @@
   %body
     %header
       %h1= link_to 'Want Ads', root_url
+      - if user_signed_in?
+        %h2
+          = "Welcome, " + session[:user_name] + "."
+          = link_to 'Log out', logout_path
+      - else
+        %h2= link_to 'Log In with Twitter', '/auth/twitter'
 
     %div#main
       = yield
