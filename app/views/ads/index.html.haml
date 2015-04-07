@@ -1,21 +1,6 @@
-%h1 Listing ads
-
-%table
-  %thead
-    %tr
-      %th Title
-      %th Description
-      %th User
-      %th
-      %th
-      %th
-
-  %tbody
-    - @ads.each do |ad|
-      %tr
-        %td= ad.title
-        %td= ad.description
-        %td= ad.user_id
-        %td= link_to 'Show', ad
-        %td= link_to 'Edit', edit_ad_path(ad)
-        %td= link_to 'Destroy', ad, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%h1 Latest Ads
+%ul
+  - @ads.each do |ad|
+    %li
+      = link_to ad.title, public_ad_path(ad)
+      %small= ad.user.name
