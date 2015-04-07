@@ -1,10 +1,16 @@
 !!!5
 %html
   %head
-    %title Wantads
+    %title Want Ads
     %meta{charset: 'utf-8'}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = yield
+    %header
+      %h1= link_to 'Want Ads', root_url
+
+    %div#main
+      = yield
+    %footer
+      %small Site content and design by Want Ads. All rights reserved.
