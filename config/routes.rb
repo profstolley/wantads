@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'ads#index'
 
-  #get '/auth/:provider', to: lambda{|env| [404, {}, ["Not Found"]]}, as: 'login'
+  get '/auth/:provider', to: lambda{|env| [404, {}, ["Not Found"]]}, as: 'login'
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
