@@ -3,7 +3,4 @@
   = "Your Ads"
   %small.nojs= link_to "Create New", new_account_ad_path
 %ul#ads
-  =render partial: "account/ads/ad", collection: @ads
-  %li#new
-    %h2 Create New Ad
-    =render partial: "account/ads/form"
+  = render partial: "account/ads/ads"
