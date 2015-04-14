@@ -11,7 +11,8 @@
       %h1= link_to 'Want Ads', root_url
       - if user_signed_in?
         %h2
-          = "Welcome, " + current_user.name + "!!"
+          Welcome,
+          = link_to current_user.name, account_path
           = link_to 'Log out', logout_path
       - else
         %h2= link_to 'Log In with Twitter', login_path(provider: 'twitter')
