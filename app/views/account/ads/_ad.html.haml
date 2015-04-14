@@ -1,0 +1,8 @@
+%li
+  %h1.title
+    = link_to ad.title, public_ad_path(ad)
+  %div
+    = ad.description
+    %small
+      = link_to "Edit", edit_account_ad_path(ad)
+      = link_to "Delete", account_ad_path(ad), method: :delete, remote: true, data: { confirm: "Are you sure?" }
