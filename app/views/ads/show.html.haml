@@ -1,7 +1,10 @@
+%p#notice= notice
 %h1.title= @ad.title
 %div
   = @ad.description
   %small
     Posted by
-    = @ad.user.name
-
+    - if @ad.user.name == current_user.name
+      = link_to "You", account_path
+    - else
+      = @ad.user.name
