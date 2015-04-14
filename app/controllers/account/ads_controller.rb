@@ -1,4 +1,4 @@
-class AdsController < ApplicationController
+class Account::AdsController < ApplicationController
   before_action :set_ad, only: [:show]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_own_ad, only: [:edit, :update, :destroy]
