@@ -47,8 +47,10 @@ class Account::AdsController < ApplicationController
   # DELETE /account/ads/1.json
   def destroy
     @ad.destroy
+    @ads = Ad.where(user_id: current_user.id)
     respond_to do |format|
       format.html { redirect_to account_url, notice: 'Ad was successfully deleted.' }
+      format.js
       format.json { head :no_content }
     end
   end
