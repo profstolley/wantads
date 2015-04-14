@@ -3,7 +3,7 @@
   - @ads.each do |ad|
     %li
       = link_to ad.title, public_ad_path(ad)
-      - if ad.user.name == current_user.name
+      - if current_user && ad.user.name == current_user.name
         %small= link_to "You", account_path
       - else
         %small= ad.user.name

@@ -4,7 +4,7 @@
   = @ad.description
   %small
     Posted by
-    - if @ad.user.name == current_user.name
+    - if current_user && @ad.user.name == current_user.name
       = link_to "You", account_path
     - else
       = @ad.user.name
