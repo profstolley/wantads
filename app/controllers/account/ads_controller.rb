@@ -20,6 +20,7 @@ class Account::AdsController < ApplicationController
     respond_to do |format|
       if @ad.save
         format.html { redirect_to public_ad_path(@ad), notice: 'Ad was successfully created.' }
+        format.js
         format.json { render :show, status: :created, location: @ad }
       else
         format.html { render :new }
