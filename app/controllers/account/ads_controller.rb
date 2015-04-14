@@ -1,30 +1,18 @@
 class Account::AdsController < ApplicationController
-  before_action :set_ad, only: [:show]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
   before_action :set_own_ad, only: [:edit, :update, :destroy]
 
-  # GET /ads
-  # GET /ads.json
-  def index
-    @ads = Ad.all
-  end
-
-  # GET /ads/1
-  # GET /ads/1.json
-  def show
-  end
-
-  # GET /ads/new
+  # GET /account/ads/new
   def new
     @ad = Ad.new
   end
 
-  # GET /ads/1/edit
+  # GET /account/ads/1/edit
   def edit
   end
 
-  # POST /ads
-  # POST /ads.json
+  # POST /account/ads
+  # POST /account/ads.json
   def create
     @ad = Ad.new(ad_params)
     @ad.user_id = current_user.id
@@ -40,8 +28,8 @@ class Account::AdsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /ads/1
-  # PATCH/PUT /ads/1.json
+  # PATCH/PUT /account/ads/1
+  # PATCH/PUT /account/ads/1.json
   def update
     respond_to do |format|
       if @ad.update(ad_params)
@@ -54,8 +42,8 @@ class Account::AdsController < ApplicationController
     end
   end
 
-  # DELETE /ads/1
-  # DELETE /ads/1.json
+  # DELETE /account/ads/1
+  # DELETE /account/ads/1.json
   def destroy
     @ad.destroy
     respond_to do |format|
@@ -66,9 +54,6 @@ class Account::AdsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_ad
-      @ad = Ad.find(params[:id])
-    end
 
     def set_own_ad
       @ad = Ad.find_by_id_and_user_id(params[:id], current_user.id)
@@ -76,6 +61,6 @@ class Account::AdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params
-      params.require(:ad).permit(:title, :description, :user_id)
+      params.require(:ad).permit(:title, :description)
     end
 end
