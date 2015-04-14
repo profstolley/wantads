@@ -295,3 +295,73 @@ optgroup::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
+
+/* Base Styles */
+
+header,footer { display: block; }
+small { font-size: 100%; }
+
+a { text-decoration: none; }
+a { color: #ff2d55; }
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1em;
+}
+
+/* Header and Footer Styles */
+
+header {
+  padding: .5em;
+  h1 {
+    float: left;
+    a { color: #007aff; }
+  }
+  h2 {
+    float: right;
+  }
+}
+
+footer {
+  padding: .5em;
+  color: #999;
+  small {
+    font-size: 60%;
+  }
+}
+
+/* Main Content Styles */
+div#main {
+  clear: both;
+  float: none;
+  padding: 1em .5em;
+  small {
+    font-size: 80%;
+    color: #777;
+    display: block;
+  }
+  h1 { text-align: center; }
+  .title {
+    text-align: left;
+    font-weight: bold;
+    padding-bottom: .5em;
+  }
+  li {
+    border-top: 1px solid #DDD;
+    padding: .5em .25em .25em .25em;
+    small {
+      display: inline;
+    }
+    h2 {
+      padding-bottom: .5em;
+    }
+  }
+  ul {
+    padding-top: 1em;
+    border-bottom: 1px solid #DDD;
+  }
+}
+
+
+
